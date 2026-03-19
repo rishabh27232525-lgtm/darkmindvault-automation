@@ -12,11 +12,11 @@ from datetime import datetime
 from pathlib import Path
 
 from yt_cloud.src import config
-from groq_ai           import find_topic, generate_script, translate_script, generate_metadata
-from voice_and_captions import VoiceAndCaptionGenerator
-from video_creator      import VideoCreator
-from thumbnail_creator  import ThumbnailCreator
-from uploader           import YouTubeUploader
+from yt_cloud.src.groq_ai import find_topic, generate_script
+from yt_cloud.src.voice_and_captions import VoiceAndCaptionGenerator
+from yt_cloud.src.video_creator import VideoCreator
+from yt_cloud.src.thumbnail_creator import ThumbnailCreator
+from yt_cloud.src.uploader import YouTubeUploader
 
 # ─── Logging ──────────────────────────────────────────────────────────────────
 
