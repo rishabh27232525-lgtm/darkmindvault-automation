@@ -11,7 +11,7 @@ import colorlog
 from datetime import datetime
 from pathlib import Path
 
-import config
+from yt_cloud.src import config
 from groq_ai           import find_topic, generate_script, translate_script, generate_metadata
 from voice_and_captions import VoiceAndCaptionGenerator
 from video_creator      import VideoCreator
