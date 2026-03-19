@@ -1,0 +1,5 @@
+
+.env
+yt_cloud/src/client_secrets.json
+yt_cloud/src/token.pickle
+yt_cloud/src/config.py

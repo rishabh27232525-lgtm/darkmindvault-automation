@@ -1,0 +1,30 @@
+# YouTube Cloud Automation — Python Dependencies
+# Install: pip install -r requirements.txt
+
+# AI (Groq — free, fastest LLM API)
+requests>=2.31.0
+groq>=0.9.0
+
+# Text-to-Speech (Microsoft Edge TTS — completely free)
+edge-tts>=6.1.9
+
+# Video Creation
+moviepy==1.0.3
+Pillow>=10.0.0
+numpy>=1.24.0
+imageio>=2.31.0
+imageio-ffmpeg>=0.4.9
+
+# YouTube API
+google-api-python-client>=2.100.0
+google-auth-oauthlib>=1.1.0
+google-auth-httplib2>=0.1.0
+google-auth>=2.23.0
+
+# Utilities
+colorlog>=6.7.0
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+
+# Topic discovery
+pytrends>=4.9.2
