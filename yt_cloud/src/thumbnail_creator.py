@@ -96,53 +96,31 @@ class ThumbnailCreator:
     # ─── Drawing Helpers ──────────────────────────────────────
 
     def _draw_text(self, draw: ImageDraw.Draw, title: str, palette: dict, lang: str):
-        font_size = 88
-        font      = self._font(font_size)
-        max_chars = 20 if lang not in ("ar", "hi") else 16
-        thumb_text = random.choice([
-          "THEY CONTROL YOU 😨",
-          "DARK SECRET 😱",
-          "YOU ARE NOT SAFE ⚠️",
-          "HIDDEN TRUTH",
-          "MIND CONTROL"
-   ])
+    font_size = 88
+    font = self._font(font_size)
 
-   lines = textwrap.wrap(thumb_text.upper(), width=max_chars)[:3]
-        y_start   = H // 2 - (len(lines) * (font_size + 14)) // 2
+    max_chars = 20 if lang not in ("ar", "hi") else 16
 
-        for i, line in enumerate(lines):
-            y = y_start + i * (font_size + 14)
-            
-            # Shadow
-            for dx, dy in [(-3,-3),(3,3),(-3,3),(3,-3)]:
-              draw.text((65+dx, y+dy), line, font=font, fill=(0,
-        0, 0))
-          
-            # White text
-            draw.text((65, y), line, font=font, fill="white")
+    thumb_text = random.choice([
+        "THEY CONTROL YOU 😨",
+        "DARK SECRET 😱",
+        "YOU ARE NOT SAFE ⚠️",
+        "HIDDEN TRUTH",
+        "MIND CONTROL"
+    ])
 
-    def _draw_left_bar(self, draw: ImageDraw.Draw, accent):
-        draw.rectangle([(42, 55), (55, H - 55)], fill=accent)
+    lines = textwrap.wrap(thumb_text.upper(), width=max_chars)[:3]
+    y_start = H // 2 - (len(lines) * (font_size + 14)) // 2
 
-    def _draw_lang_badge(self, draw: ImageDraw.Draw, lang: str, accent):
-        label = LANG_LABELS.get(lang, "")
-        flag  = config.LANGUAGES[lang]["flag"]
-        text  = f"{flag} {label}".strip() if label else flag
-        font  = self._font(26)
-        draw.rounded_rectangle(
-            [(W-220, H-62), (W-18, H-18)],
-            radius=8, fill=accent
-        )
-        draw.text((W-208, H-54), text, font=font, fill=(10, 10, 10))
+    for i, line in enumerate(lines):
+        y = y_start + i * (font_size + 14)
 
-    def _gradient_overlay(self, img: Image.Image, bg_color: tuple) -> Image.Image:
-        overlay = Image.new("RGBA", (W, H), (0,0,0,0))
-        draw    = ImageDraw.Draw(overlay)
-        for y in range(H):
-            alpha = int(170 * (y / H))
-            draw.line([(0,y),(W,y)], fill=tuple(bg_color) + (alpha,))
-        return Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+        # Shadow
+        for dx, dy in [(-3, -3), (3, 3), (-3, 3), (3, -3)]:
+            draw.text((65 + dx, y + dy), line, font=font, fill=(0, 0, 0))
 
+        # Main text
+        draw.text((65, y), line, font=font, fill="white")
     # ─── Pexels Image ─────────────────────────────────────────
 
     def _fetch_image(self, query: str) -> Image.Image | None:
