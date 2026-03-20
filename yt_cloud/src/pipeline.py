@@ -59,18 +59,29 @@ def generate_metadata(script, lang_code):
     }
 
     return {
-        "title": f"{script.title} 😨 Truth They Don't Want You To Know",
+        "title": f"{script.title} 😨 Truth They Don't Want You To Know | {lang_code.upper()} | {random.randint(100,999)}",
         "description": f"""
 😨 {script.title}
 
-This dark truth will shock you...
+What if everything you know is a lie?
 
-⚠️ Watch till end
-💬 Comment your thoughts
-🔥 Subscribe for more
+This video exposes one of the darkest truths hidden from the world. From secret experiments to psychological manipulation, this story will change how you see reality.
 
-#darktruth #psychology #mindcontrol
-""",
+⚠️ WARNING: Not for weak minds.
+
+👉 In this video:
+• Hidden truth behind mind control
+• Dark psychological experiments
+• Real facts they don't want you to know
+• The reality behind MK Ultra & brainwashing
+
+👁️ Watch till the end to understand the full truth.
+
+💬 Comment your thoughts — do you believe this is real?
+
+🔥 Subscribe for more dark truths, psychology facts & hidden secrets.
+
+#darktruth #mindcontrol #psychology #mkultra #darksecrets #brainwashing #truth
         "tags": [
             "dark truth",
             "mk ultra",
