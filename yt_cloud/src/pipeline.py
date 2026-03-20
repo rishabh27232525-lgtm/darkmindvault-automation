@@ -60,28 +60,19 @@ def generate_metadata(script, lang_code):
 
     return {
         "title": f"{script.title} 😨 They Hid This From You | Dark Truth | {lang_code.upper()} | {random.randint(100,999)}",
-        "description": f"""
-😨 {script.title}
-
-What if everything you know is a lie?
-
-This video exposes one of the darkest truths hidden from the world. From secret experiments to psychological manipulation, this story will change how you see reality.
-
-⚠️ WARNING: Not for weak minds.
-
-👉 In this video:
-• Hidden truth behind mind control
-• Dark psychological experiments
-• Real facts they don't want you to know
-• The reality behind MK Ultra & brainwashing
-
-👁️ Watch till the end to understand the full truth.
-
-💬 Comment your thoughts — do you believe this is real?
-
-🔥 Subscribe for more dark truths, psychology facts & hidden secrets.
-
-#darktruth #mindcontrol #psychology #mkultra #darksecrets #brainwashing #truth
+        "description": (
+    f"😱 {script.title}\n\n"
+    "What if everything you know is a lie?\n\n"
+    "This video exposes one of the darkest truths hidden from the world.\n\n"
+    "⚠️ WARNING: Not for weak minds.\n\n"
+    "👉 Hidden truth behind mind control\n"
+    "👉 Dark psychological experiments\n"
+    "👉 Real facts they don't want you to know\n\n"
+    "👁️ Watch till the end to understand the truth.\n\n"
+    "💬 Comment your thoughts\n"
+    "🔥 Subscribe for more\n\n"
+    "#darktruth #mindcontrol #psychology #mkultra #darksecrets #brainwashing #truth"
+),
         "tags": [
             "dark truth",
             "mk ultra",
