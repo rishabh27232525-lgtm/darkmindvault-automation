@@ -185,14 +185,9 @@ def run(upload: bool = True):
             )
 
             # Thumbnail
-            logger.info(f"🖼️ Creating {lang_name} thumbnail...")
-            thumb_path = thumb_gen.create(
-                title       = script.title,
-                search_term = search_terms[0],
-                lang_code   = lang_code,
-                output_dir  = lang_dir,
-            )
-
+            
+            thumb_path = None
+                
             # Upload
             if upload:
                 logger.info(f"📤 Uploading {lang_name} to YouTube...")
