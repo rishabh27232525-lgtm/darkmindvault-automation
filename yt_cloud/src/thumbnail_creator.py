@@ -99,7 +99,15 @@ class ThumbnailCreator:
         font_size = 88
         font      = self._font(font_size)
         max_chars = 20 if lang not in ("ar", "hi") else 16
-        lines     = textwrap.wrap(title.upper(), width=max_chars)[:3]
+        thumb_text = random.choice([
+          "THEY CONTROL YOU 😨",
+          "DARK SECRET 😱",
+          "YOU ARE NOT SAFE ⚠️",
+          "HIDDEN TRUTH",
+          "MIND CONTROL"
+   ])
+
+   lines = textwrap.wrap(thumb_text.upper(), width=max_chars)[:3]
         y_start   = H // 2 - (len(lines) * (font_size + 14)) // 2
 
         for i, line in enumerate(lines):
