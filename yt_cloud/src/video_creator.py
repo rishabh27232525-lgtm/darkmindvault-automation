@@ -9,6 +9,8 @@ import random
 import time
 import requests
 from pathlib import Path
+import os
+os.environ["IMAGEMAGICK_BINARY"] = "/usr/bin/convert"
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
