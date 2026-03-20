@@ -112,9 +112,13 @@ class ThumbnailCreator:
 
         for i, line in enumerate(lines):
             y = y_start + i * (font_size + 14)
+            
             # Shadow
             for dx, dy in [(-3,-3),(3,3),(-3,3),(3,-3)]:
-                draw.text((65+dx, y+dy), line, font=font, fill=(0, 0, 0, 200))
+              draw.text((65+dx, y+dy), line, font=font, fill=(0,
+        0, 0))
+          
+            # White text
             draw.text((65, y), line, font=font, fill="white")
 
     def _draw_left_bar(self, draw: ImageDraw.Draw, accent):
