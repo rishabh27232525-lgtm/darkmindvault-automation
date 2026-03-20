@@ -28,3 +28,14 @@ CHANNEL_NAME = "DarkMindVault"
 
 GROQ_MODEL = "llama-3.3-70b-versatile"
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+
+FOOTAGE_KEYWORDS = [
+    "dark documentary",
+    "mysterious experiment",
+    "mind control",
+    "psychology test",
+    "brain experiment",
+    "creepy lab",
+    "secret research",
+    "human experiment"
+]
