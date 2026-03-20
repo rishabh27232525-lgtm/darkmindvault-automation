@@ -26,4 +26,5 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           YOUTUBE_CREDS_B64: ${{ secrets.YOUTUBE_CREDS_B64 }}
           YOUTUBE_TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
+        
         run: python -m yt_cloud.src.pipeline
