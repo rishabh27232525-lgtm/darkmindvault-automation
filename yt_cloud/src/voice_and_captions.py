@@ -98,7 +98,6 @@ def format_time(t):
     s = total_seconds % 60
     return f"{h:02}:{m:02}:{s:02}.{ms:03}"
 
-
 subs = "\n".join([
     f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
     for i, cue in enumerate(submaker.cues)
