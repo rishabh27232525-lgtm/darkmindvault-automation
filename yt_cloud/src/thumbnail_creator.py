@@ -13,7 +13,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 import numpy as np
 
-import config
+from yt_cloud.src import config
 
 logger = logging.getLogger(__name__)
 
