@@ -6,6 +6,7 @@ Flow: Topic → Script (EN) → Translate × 5 → Voice + Video + Thumb per lan
 import sys
 import os
 import logging
+import colorlog
 
 from yt_cloud.src import config
 from yt_cloud.src.groq_ai import find_topic, generate_script
