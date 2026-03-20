@@ -39,3 +39,6 @@ FOOTAGE_KEYWORDS = [
     "dark cinematic documentary footage",
     "psychological experiment reenactment"
 ]
+
+VIDEO_WIDTH = 1280
+VIDEO_HEIGHT = 720
