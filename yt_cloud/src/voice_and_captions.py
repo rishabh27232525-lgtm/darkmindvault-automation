@@ -67,25 +67,28 @@ class VoiceAndCaptionGenerator:
 
     # ─── Async TTS Generation ─────────────────────────────────
 
-    async def _generate_async(self, text: str, voice: str, audio_path: Path, vtt_path: Path):
-        communicate = edge_tts.Communicate(
-            text   = text,
-            voice  = voice,
-            rate   = "+5%",    # Slightly faster = more engaging
-            volume = "+0%"
-        )
-        submaker = edge_tts.SubMaker()
+async def _generate_async(self, text: str, voice: str, audio_path: Path, vtt_path: Path):
 
-        with open(audio_path, "wb") as f:
-            async for chunk in communicate.stream():
-                if chunk["type"] == "audio":
-                    f.write(chunk["data"])
-                elif chunk["type"] == "WordBoundary":
-                    submaker.create_sub(
+    communicate = edge_tts.Communicate(
+        text=text,
+        voice=voice,
+        rate="+5%",
+        volume="+0%"
+    )
+
+    submaker = edge_tts.SubMaker()
+
+    with open(audio_path, "wb") as f:
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                f.write(chunk["data"])
+            elif chunk["type"] == "WordBoundary":
+                submaker.create_sub(
                     (chunk["offset"], chunk["duration"]),
-                     chunk["text"]
-                 )
+                    chunk["text"]
+                )
 
+    # ✅ format time function
     def format_time(t):
         import datetime
         td = datetime.timedelta(seconds=float(t) / 1000)
@@ -96,11 +99,13 @@ class VoiceAndCaptionGenerator:
         s = total_seconds % 60
         return f"{h:02}:{m:02}:{s:02}.{ms:03}"
 
+    # ✅ subtitles create
     subs = "\n".join([
         f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
         for i, cue in enumerate(submaker.cues)
     ])
 
+    # ✅ write vtt
     with open(vtt_path, "w", encoding="utf-8") as f:
         f.write(subs)
               
