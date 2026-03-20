@@ -6,7 +6,7 @@ Flow: Topic → Script (EN) → Translate × 5 → Voice + Video + Thumb per lan
 import sys
 import os
 
-sys.path.append(os.path.join(os.getcwd(), "yt_cloud", "src"))
+sys.path.append(os.path.dirname(__file__))
 
 import json
 import logging
