@@ -30,12 +30,12 @@ GROQ_MODEL = "llama-3.3-70b-versatile"
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 
 FOOTAGE_KEYWORDS = [
-    "dark documentary",
-    "mysterious experiment",
-    "mind control",
-    "psychology test",
-    "brain experiment",
-    "creepy lab",
-    "secret research",
-    "human experiment"
+    "mind control experiment documentary",
+    "dark psychology lab experiment",
+    "human brain experiment cinematic",
+    "mysterious science lab dark",
+    "secret government experiment",
+    "creepy medical research lab",
+    "dark cinematic documentary footage",
+    "psychological experiment reenactment"
 ]
