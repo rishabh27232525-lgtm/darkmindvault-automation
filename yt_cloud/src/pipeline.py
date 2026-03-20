@@ -53,23 +53,12 @@ SCRIPT:
 
 
 def generate_metadata(script, lang_code):
-    prompt = f"""
-Create YouTube metadata for this video.
-
-Give:
-1. Title (viral)
-2. Description
-3. Tags
-
-LANGUAGE: {lang_code}
-
-SCRIPT:
-{script.full_text[:1000]}
-"""
-    response = _groq(prompt)
+    return {
+    "title": script.title,
+    "description": f"{script.title} shocking truth revealed. Watch till end!",
+    "tags": ["dark truth", "mind control", "mk ultra", "psychology"]
+    }
     
-    return {"raw": response}
-
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 
 USED_FILE = config.BASE_DIR / "used_topics.json"
