@@ -13,4 +13,5 @@ ACTIVE_LANGUAGES = ["en"]
 # Dummy placeholders (baad me change kar sakte)
 CHANNEL_NAME = "DarkMindVault"
 
+GROQ_MODEL = "llama-3.3-70b-versatile"
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
