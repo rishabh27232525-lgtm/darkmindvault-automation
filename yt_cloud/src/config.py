@@ -8,7 +8,20 @@ YOUTUBE_TOKEN_B64 = os.getenv("YOUTUBE_TOKEN_B64")
 BASE_DIR = Path(__file__).parent
 OUTPUT_DIR = BASE_DIR.parent / "output"
 
-ACTIVE_LANGUAGES = ["en"]
+ACTIVE_LANGUAGES = ["en", "hi"]
+
+LANGUAGES = {
+    "en": {
+        "name": "English",
+        "voice": "en-US-GuyNeural",
+        "flag": "🇺🇸"
+    },
+    "hi": {
+        "name": "Hindi",
+        "voice": "hi-IN-MadhurNeural",
+        "flag": "🇮🇳"
+    }
+}
 
 # Dummy placeholders (baad me change kar sakte)
 CHANNEL_NAME = "DarkMindVault"
