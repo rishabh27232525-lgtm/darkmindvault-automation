@@ -18,7 +18,7 @@ from moviepy.editor import (
 )
 import moviepy.video.fx.all as vfx
 
-import config
+from yt_cloud.src import config
 from voice_and_captions import VoiceResult
 
 logger = logging.getLogger(__name__)
