@@ -86,23 +86,23 @@ class VoiceAndCaptionGenerator:
                      chunk["text"]
                  )
 
-       def format_time(t):
-           import datetime
-           td = datetime.timedelta(seconds=float(t) / 1000)
-           total_seconds = int(td.total_seconds())
-           ms = int((td.total_seconds() - total_seconds) * 1000)
-           h = total_seconds // 3600
-           m = (total_seconds % 3600) // 60
-           s = total_seconds % 60
-           return f"{h:02}:{m:02}:{s:02}.{ms:03}"
+    def format_time(t):
+        import datetime
+        td = datetime.timedelta(seconds=float(t) / 1000)
+        total_seconds = int(td.total_seconds())
+        ms = int((td.total_seconds() - total_seconds) * 1000)
+        h = total_seconds // 3600
+        m = (total_seconds % 3600) // 60
+        s = total_seconds % 60
+        return f"{h:02}:{m:02}:{s:02}.{ms:03}"
 
-       subs = "\n".join([
-           f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
-           for i, cue in enumerate(submaker.cues)
-       ])
+    subs = "\n".join([
+        f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
+        for i, cue in enumerate(submaker.cues)
+    ])
 
-       with open(vtt_path, "w", encoding="utf-8") as f:
-           f.write(subs)
+    with open(vtt_path, "w", encoding="utf-8") as f:
+        f.write(subs)
               
     # ─── Caption Parsing ──────────────────────────────────────
 
