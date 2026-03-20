@@ -6,21 +6,13 @@ Flow: Topic → Script (EN) → Translate × 5 → Voice + Video + Thumb per lan
 import sys
 import os
 
-sys.path.append(os.path.dirname(__file__))
+from yt_cloud.src import config
+from yt_cloud.src.groq_ai import find_topic, generate_script
+from yt_cloud.src.voice_and_captions import VoiceAndCaptionGenerator
+from yt_cloud.src.video_creator import VideoCreator
+from yt_cloud.src.thumbnail_creator import ThumbnailCreator
+from yt_cloud.src.uploader import YouTubeUploader
 
-import json
-import logging
-import sys
-import colorlog
-from datetime import datetime
-from pathlib import Path
-
-import config
-from groq_ai import find_topic, generate_script
-from voice_and_captions import VoiceAndCaptionGenerator
-from video_creator import VideoCreator
-from thumbnail_creator import ThumbnailCreator
-from uploader import YouTubeUploader
 
 # ─── Logging ──────────────────────────────────────────────────────────────────
 
