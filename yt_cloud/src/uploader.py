@@ -18,7 +18,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
-import config
+from yt_cloud.src import config
 
 logger = logging.getLogger(__name__)
 SCOPES = [
