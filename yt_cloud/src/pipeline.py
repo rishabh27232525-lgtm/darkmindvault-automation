@@ -53,10 +53,32 @@ SCRIPT:
 
 
 def generate_metadata(script, lang_code):
+    upload_times = {
+        "en": "15:00",
+        "hi": "18:30"
+    }
+
     return {
-    "title": script.title,
-    "description": f"{script.title} shocking truth revealed. Watch till end!",
-    "tags": ["dark truth", "mind control", "mk ultra", "psychology"]
+        "title": f"{script.title} 😨 Truth They Don't Want You To Know",
+        "description": f"""
+😨 {script.title}
+
+This dark truth will shock you...
+
+⚠️ Watch till end
+💬 Comment your thoughts
+🔥 Subscribe for more
+
+#darktruth #psychology #mindcontrol
+""",
+        "tags": [
+            "dark truth",
+            "mk ultra",
+            "mind control",
+            "psychology facts",
+            "dark secrets"
+        ],
+        "upload_time": upload_times.get(lang_code, "now")
     }
     
 # ─── Helpers ──────────────────────────────────────────────────────────────────
