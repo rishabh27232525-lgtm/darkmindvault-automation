@@ -113,7 +113,7 @@ class ThumbnailCreator:
         y_start = H // 2 - (len(lines) * (font_size + 14)) // 2
 
         for i, line in enumerate(lines):
-        y = y_start + i * (font_size + 14)
+            y = y_start + i * (font_size + 14)
 
         # Shadow
         for dx, dy in [(-3, -3), (3, 3), (-3, 3), (3, -3)]:
