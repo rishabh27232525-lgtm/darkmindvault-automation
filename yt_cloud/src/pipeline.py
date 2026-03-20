@@ -9,6 +9,7 @@ import logging
 import colorlog
 from datetime import datetime
 import json
+import random
 
 from yt_cloud.src.groq_ai import _groq
 
