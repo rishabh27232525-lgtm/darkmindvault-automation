@@ -1,4 +1,4 @@
-"""
+ki"""
 voice_and_captions.py — Multi-language voiceover + SRT/VTT caption generation
 Uses: edge-tts (Microsoft Edge TTS — completely free, no API key)
 Supports: English, Spanish, Hindi, Portuguese, Arabic, French
@@ -78,34 +78,32 @@ class VoiceAndCaptionGenerator:
 
         with open(audio_path, "wb") as f:
             async for chunk in communicate.stream():
-                if chunk["type"] == "audio":
-                    f.write(chunk["data"])
-                elif chunk["type"] == "WordBoundary":
-                    submaker.create_sub(
-                        (chunk["offset"], chunk["duration"]),
-                        chunk["text"]
-                    )
+            if chunk["type"] == "audio":
+            f.write(chunk["data"])
+            elif chunk["type"] == "WordBoundary":
+            submaker.create_sub(
+                (chunk["offset"], chunk["duration"]),
+                chunk["text"]
+            )
 
-        # Write VTT — 6 words per cue for readability
-        # Write VTT — fixed
-def format_time(t):
-    import datetime
-    td = datetime.timedelta(seconds=float(t) / 1000)
-    total_seconds = int(td.total_seconds())
-    ms = int((td.total_seconds() - total_seconds) * 1000)
-    h = total_seconds // 3600
-    m = (total_seconds % 3600) // 60
-    s = total_seconds % 60
-    return f"{h:02}:{m:02}:{s:02}.{ms:03}"
+       def format_time(t):
+           import datetime
+           td = datetime.timedelta(seconds=float(t) / 1000)
+           total_seconds = int(td.total_seconds())
+           ms = int((td.total_seconds() - total_seconds) * 1000)
+           h = total_seconds // 3600
+           m = (total_seconds % 3600) // 60
+           s = total_seconds % 60
+           return f"{h:02}:{m:02}:{s:02}.{ms:03}"
 
-subs = "\n".join([
-    f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
-    for i, cue in enumerate(submaker.cues)
-])
+       subs = "\n".join([
+           f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
+           for i, cue in enumerate(submaker.cues)
+       ])
 
-with open(vtt_path, "w", encoding="utf-8") as f:
-    f.write(subs)
-
+       with open(vtt_path, "w", encoding="utf-8") as f:
+           f.write(subs)
+              
     # ─── Caption Parsing ──────────────────────────────────────
 
     def _parse_vtt(self, vtt_path: Path) -> list:
