@@ -87,8 +87,25 @@ class VoiceAndCaptionGenerator:
                     )
 
         # Write VTT — 6 words per cue for readability
-        with open(vtt_path, "w", encoding="utf-8") as f:
-            f.write(submaker.generate_subs(words_in_cue=6))
+        # Write VTT — fixed
+def format_time(t):
+    import datetime
+    td = datetime.timedelta(seconds=float(t) / 1000)
+    total_seconds = int(td.total_seconds())
+    ms = int((td.total_seconds() - total_seconds) * 1000)
+    h = total_seconds // 3600
+    m = (total_seconds % 3600) // 60
+    s = total_seconds % 60
+    return f"{h:02}:{m:02}:{s:02}.{ms:03}"
+
+
+subs = "\n".join([
+    f"{i+1}\n{format_time(cue[0])} --> {format_time(cue[1])}\n{cue[2]}\n"
+    for i, cue in enumerate(submaker.cues)
+])
+
+with open(vtt_path, "w", encoding="utf-8") as f:
+    f.write(subs)
 
     # ─── Caption Parsing ──────────────────────────────────────
 
@@ -145,7 +162,7 @@ class VoiceAndCaptionGenerator:
         m  = int((sec % 3600) // 60)
         s  = int(sec % 60)
         ms = int((sec % 1) * 1000)
-        return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+        return f"{h:02d}:{m:02d}:{s:02d}.{ms:03d}"
 
     @staticmethod
     def _get_duration(audio_path: Path) -> float:
