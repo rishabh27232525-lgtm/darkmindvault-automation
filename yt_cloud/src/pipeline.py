@@ -7,6 +7,7 @@ import sys
 import os
 import logging
 import colorlog
+from datetime import datetime
 
 from yt_cloud.src import config
 from yt_cloud.src.groq_ai import find_topic, generate_script
