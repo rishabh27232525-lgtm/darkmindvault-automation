@@ -15,13 +15,13 @@ LANGUAGES = {
     "name": "English",
     "voice": "en-US-GuyNeural",
     "flag": "🇺🇸",
-    "upload_time": "15:00"
+    "upload_time": "09:30"
 },
 "hi": {
     "name": "Hindi",
     "voice": "hi-IN-MadhurNeural",
     "flag": "🇮🇳",
-    "upload_time": "19:40"
+    "upload_time": "13:00"
 }
 }
 
