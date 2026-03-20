@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import edge_tts
-import config
+from yt_cloud.src import config
 
 logger = logging.getLogger(__name__)
 
