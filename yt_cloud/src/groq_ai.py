@@ -10,7 +10,7 @@ import logging
 import requests
 from dataclasses import dataclass, field
 
-import config
+from yt_cloud.src import config
 
 logger = logging.getLogger(__name__)
 
