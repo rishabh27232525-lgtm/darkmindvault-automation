@@ -1,7 +1,7 @@
-ki"""
+"""
 voice_and_captions.py — Multi-language voiceover + SRT/VTT caption generation
 Uses: edge-tts (Microsoft Edge TTS — completely free, no API key)
-Supports: English, Spanish, Hindi, Portuguese, Arabic, French
+Supports: English,Hindi
 """
 
 import asyncio
