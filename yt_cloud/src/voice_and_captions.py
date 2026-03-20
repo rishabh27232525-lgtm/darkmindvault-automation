@@ -78,13 +78,13 @@ class VoiceAndCaptionGenerator:
 
         with open(audio_path, "wb") as f:
             async for chunk in communicate.stream():
-            if chunk["type"] == "audio":
-            f.write(chunk["data"])
-            elif chunk["type"] == "WordBoundary":
-            submaker.create_sub(
-                (chunk["offset"], chunk["duration"]),
-                chunk["text"]
-            )
+                if chunk["type"] == "audio":
+                    f.write(chunk["data"])
+                elif chunk["type"] == "WordBoundary":
+                    submaker.create_sub(
+                    (chunk["offset"], chunk["duration"]),
+                     chunk["text"]
+                 )
 
        def format_time(t):
            import datetime
