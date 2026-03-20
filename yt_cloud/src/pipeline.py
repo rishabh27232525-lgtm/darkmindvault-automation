@@ -59,7 +59,7 @@ def generate_metadata(script, lang_code):
     }
 
     return {
-        "title": f"{script.title} 😨 Truth They Don't Want You To Know | {lang_code.upper()} | {random.randint(100,999)}",
+        "title": f"{script.title} 😨 They Hid This From You | Dark Truth | {lang_code.upper()} | {random.randint(100,999)}",
         "description": f"""
 😨 {script.title}
 
