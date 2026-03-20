@@ -27,4 +27,4 @@ jobs:
           YOUTUBE_CREDS_B64: ${{ secrets.YOUTUBE_CREDS_B64 }}
           YOUTUBE_TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
         
-        run: python -m yt_cloud.src.pipeline
+        run: python yt_cloud/src/pipeline.py
