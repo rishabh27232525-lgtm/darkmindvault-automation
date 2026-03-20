@@ -12,15 +12,17 @@ ACTIVE_LANGUAGES = ["en", "hi"]
 
 LANGUAGES = {
     "en": {
-        "name": "English",
-        "voice": "en-US-GuyNeural",
-        "flag": "🇺🇸"
-    },
-    "hi": {
-        "name": "Hindi",
-        "voice": "hi-IN-MadhurNeural",
-        "flag": "🇮🇳"
-    }
+    "name": "English",
+    "voice": "en-US-GuyNeural",
+    "flag": "🇺🇸",
+    "upload_time": "15:00"
+},
+"hi": {
+    "name": "Hindi",
+    "voice": "hi-IN-MadhurNeural",
+    "flag": "🇮🇳",
+    "upload_time": "19:40"
+}
 }
 
 # Dummy placeholders (baad me change kar sakte)
