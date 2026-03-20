@@ -10,6 +10,8 @@ import colorlog
 from datetime import datetime
 import json
 
+from yt_cloud.src.groq_ai import _groq
+
 from yt_cloud.src import config
 from yt_cloud.src.groq_ai import find_topic, generate_script
 from yt_cloud.src.voice_and_captions import VoiceAndCaptionGenerator
@@ -31,6 +33,42 @@ def setup_logging():
     logging.getLogger().addHandler(handler)
 
 logger = logging.getLogger(__name__)
+
+def translate_script(script_en, lang_code):
+    prompt = f"""
+Translate the following YouTube script into {lang_code}.
+Keep emotional tone, storytelling, and suspense.
+
+SCRIPT:
+{script_en.full_text}
+"""
+    response = _groq(prompt)
+    
+    class Script:
+        def __init__(self, text, title):
+            self.full_text = text
+            self.title = title
+    
+    return Script(response, script_en.title)
+
+
+def generate_metadata(script, lang_code):
+    prompt = f"""
+Create YouTube metadata for this video.
+
+Give:
+1. Title (viral)
+2. Description
+3. Tags
+
+LANGUAGE: {lang_code}
+
+SCRIPT:
+{script.full_text[:1000]}
+"""
+    response = _groq(prompt)
+    
+    return {"raw": response}
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 
